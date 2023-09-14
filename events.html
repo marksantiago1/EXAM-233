@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style> 
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: #fff;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+}
+</style>
+<header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+</header>
+<body onresize="myFunction7()">
+<nav class="main-nav">
+    <a href="index.html">
+    <div class="main-logo">
+        <div class="logo">EVENTS</div>
+    </div>
+    </a>
+</nav>
+<div class="container_1">
+    <div class="welcome_box">
+        <a href="index.html">
+        <p class="welcome_text">MOUSE OVER EVENT(1)</p>
+        </a>
+    </div>
+</div>
+<div class="border">
+    <h1>CLICK EVENT(2)</h1>
+    <img id="myImage1" src="AirbusA321CEO.png" alt="Aircraft">
+    <button id="changeImageBtn1">Press me</button>
+</div>
+
+<div class="border">
+    <h1>Mouse Up Event(3) And Mouse Down Event(4)</h1>
+    <p id="myP" onmousedown="mouseDown()" onmouseup="mouseUp()">
+        The mouseDown() function sets the color of this text to red.
+        The mouseUp() function sets the color of this text to blue.
+    </p>
+</div>
+
+<div class="border">
+    <h1>Copy Event(5)</h1>
+    <input type="text" oncopy="myFunction3()" value="Try to copy me">
+    <p id="copy"></p>
+</div>
+
+<div class="border">
+    <h1>Blur Event(6)</h1>
+    Enter Any text(transform to uppercase): <input type="text" id="fname" onblur="myFunction4()">
+</div>
+
+<div class="border">
+    <h1>DB Click Event(7)</h1>
+    <button ondblclick="myFunction5()">Double-click me</button>
+    <p id="db"></p>
+</div>
+
+<div class="border">
+    <h1>Focus Event(8)</h1>
+    Enter your name: <input type="text" onfocus="myFunction6(this)">
+</div>
+<div class="border">
+    <h1>Resize Event(9)</h1>
+    <p>Try to resize the browser window to display the windows height and width.</p>
+    <p id="size"></p>
+</div>
+<div class="border">
+    <h1>(10)</h1>
+    <div id="myDIV" onclick="myFunction8()">CLICK HERE!.</div>
+</div>
+
+<footer>
+    <p>&copy; 2023 All rights reserved.</p>
+</footer>
+<script>
+    function myFunction3() {
+        document.getElementById("copy").innerHTML = "You copied text!"
+    }
+    function myFunction4() {
+        let x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+    }
+    function mouseDown() {
+        document.getElementById("myP").style.color = "yellow";
+    }
+    function mouseUp() {
+        document.getElementById("myP").style.color = "black";
+    }
+    function myFunction5() {
+        document.getElementById("db").innerHTML = "Hello";
+    }
+    function myFunction6(x) {
+        x.style.background = "blue";
+    }
+    function myFunction7() {
+        let w = window.outerWidth;
+        let h = window.outerHeight;
+        let txt = "width=" + w + ", height=" + h;
+        document.getElementById("size").innerHTML = txt;
+    }
+
+    const div1 = document.getElementById("myDIV");
+        function myFunction8() {
+        div1.style.animation = "mymove 4s 2";
+    }
+
+    div1.addEventListener("animationstart", myStartFunction);
+    div1.addEventListener("animationiteration", myRepeatFunction);
+    div1.addEventListener("animationend", myEndFunction);
+
+    function myStartFunction() {
+        this.innerHTML = "The animation has started";
+        this.style.backgroundColor = "pink";
+    }
+    function myRepeatFunction() {
+        this.innerHTML = "The animation was played again";
+        this.style.backgroundColor = "lightblue";
+    }
+    function myEndFunction() {
+        this.innerHTML = "The animation has completed";
+        this.style.backgroundColor = "lightgray";
+    }
+    </script>
+<script src="script.js"></script>
+</body>
+</html> 
